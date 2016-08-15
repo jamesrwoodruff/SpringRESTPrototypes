@@ -17,29 +17,33 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.jrw.model.Book;
 import com.jrw.service.BookService;
 
+/*
+ * This is a REST controller class that will serve book resources in a REST API.
+ */
 @RestController
 public class BookController {
 
 	@Autowired
-	BookService bookService;  //Service which will do all data retrieval/manipulation work
+	BookService bookService;
 	
 	/*
-	 * Retrieve All Books
+	 * Retrieve all books.
 	 */	
 	@RequestMapping(value = "/book/", method = RequestMethod.GET)
 	public ResponseEntity<List<Book>> listAllBooks() {
 		List<Book> books = bookService.findAllBooks();
 		if(books.isEmpty()){
-			return new ResponseEntity<List<Book>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
+			return new ResponseEntity<List<Book>>(HttpStatus.NO_CONTENT); // Alternatively, you may want to return HttpStatus.NOT_FOUND.
 		}
 		return new ResponseEntity<List<Book>>(books, HttpStatus.OK);
 	}
 
 
 	/*
-	 * Retrieve single book by id
+	 * Retrieve a single book by id (in json or xml format).
 	 */
-	@RequestMapping(value = "/book/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/book/{id}", method = RequestMethod.GET, 
+			produces={MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE})
 	public ResponseEntity<Book> getBook(@PathVariable("id") long id) {
 		System.out.println("Fetching Book with id " + id);
 		Book book = bookService.findById(id);
@@ -53,14 +57,14 @@ public class BookController {
 	
 	
 	/*
-	 * Create a new Book
+	 * Create and post a new book.
 	 */
 	@RequestMapping(value = "/book/", method = RequestMethod.POST)
 	public ResponseEntity<Void> createBook(@RequestBody Book book, 	UriComponentsBuilder ucBuilder) {
 		System.out.println("Creating Book " + book.getName());
 
 		if (bookService.isBookExist(book)) {
-			System.out.println("A Book with name " + book.getName() + " already exist");
+			System.out.println("A Book with the name " + book.getName() + " already exists");
 			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
 		}
 
@@ -73,7 +77,7 @@ public class BookController {
 
 	
 	/*
-	 * Update an existing book
+	 * Update an existing book.
 	 */
 	@RequestMapping(value = "/book/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<Book> updateBook(@PathVariable("id") long id, @RequestBody Book book) {
@@ -96,7 +100,7 @@ public class BookController {
 
 
 	/*
-	 * Delete an existing book
+	 * Delete an existing book.
 	 */
 	@RequestMapping(value = "/book/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Book> deleteBook(@PathVariable("id") long id) {
@@ -114,7 +118,7 @@ public class BookController {
 
 	
 	/*
-	 * Delete all books
+	 * Delete all books.
 	 */
 	@RequestMapping(value = "/book/", method = RequestMethod.DELETE)
 	public ResponseEntity<Book> deleteAllBooks() {

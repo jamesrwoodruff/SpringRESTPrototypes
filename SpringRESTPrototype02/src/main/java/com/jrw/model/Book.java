@@ -1,5 +1,9 @@
 package com.jrw.model;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "player")
 public class Book {
 
 	private long id;
@@ -18,6 +22,7 @@ public class Book {
 		this.year = year;
 	}
 
+	@XmlElement
 	public long getId() {
 		return id;
 	}
@@ -26,6 +31,7 @@ public class Book {
 		this.id = id;
 	}
 
+	@XmlElement
 	public String getName() {
 		return name;
 	}
@@ -34,6 +40,7 @@ public class Book {
 		this.name = name;
 	}
 
+	@XmlElement
 	public String getAuthor() {
 		return author;
 	}
@@ -42,6 +49,7 @@ public class Book {
 		this.author = author;
 	}	
 
+	@XmlElement
 	public int getYear() {
 		return year;
 	}
