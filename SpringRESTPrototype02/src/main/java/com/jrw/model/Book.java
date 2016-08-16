@@ -3,7 +3,7 @@ package com.jrw.model;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name = "player")
+@XmlRootElement(name = "book")
 public class Book {
 
 	private long id;
