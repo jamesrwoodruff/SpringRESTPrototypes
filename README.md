@@ -11,4 +11,4 @@ Note that the following enables the "retrieval by id" to work in xml as well as 
 * Including MediaType.APPLICATION_XML_VALUE (in addition to MediaType.APPLICATION_JSON_VALUE) to controller method getBook.
 * Having JAXB annotations (e.g., @XmlRootElement) in the domain class (Book).
 
-After these are in place the data can be pulled in either json or xml format by appending the extension to the url (*.../SpringRESTPrototype02/book/3.json*) or xml format (*.../SpringRESTPrototype02/book/3.xml*).
+If these are in place, the data can be pulled in either json or xml format by appending the extension to the url (*.../SpringRESTPrototype02/book/3.json*) or xml format (*.../SpringRESTPrototype02/book/3.xml*).
