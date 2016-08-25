@@ -1,5 +1,5 @@
 ## SpringRESTPrototype01
-A simple Spring REST project. Began by copying Spring guide to creating a basic RESTful web service (https://spring.io/guides/gs/rest-service/).
+A simple Spring REST project. Began by copying Spring guide to creating a basic RESTful web service (https://spring.io/guides/gs/rest-service/) and made some changes.
 
 ## Features
 * Uses Spring Boot, which includes embedded Tomcat and other features
