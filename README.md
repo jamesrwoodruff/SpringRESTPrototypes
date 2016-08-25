@@ -10,3 +10,5 @@ To run, execute **SpringRESTPrototype01Application.java** (from Eclipse, right-c
 If launch is successful, the URLs that become available are: 
 * http://localhost:8080/greeting
 * http://localhost:8080/greeting?name=Any Name
+* http://localhost:8080/greeting?userid=1234
+* http://localhost:8080/greeting?name=Any%20Name&userid=1234
