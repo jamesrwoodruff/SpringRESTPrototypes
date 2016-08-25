@@ -3,6 +3,7 @@ A simple Spring REST project. Began by copying Spring guide to creating a basic 
 
 ## Features
 * Uses Spring Boot, which includes embedded Tomcat and other features
+* Apache Maven for build automation
 
 ## Run Instructions
 To run, execute **SpringRESTPrototype01Application.java** (from Eclipse, right-click and select Run As -> Java Application)
