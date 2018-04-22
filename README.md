@@ -1,2 +1,0 @@
-## SpringRESTPrototypes
-Spring REST prototypes
